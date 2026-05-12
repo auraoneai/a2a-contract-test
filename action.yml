@@ -14,7 +14,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: python -m pip install a2a-contract-test
+    - run: python -m pip install "${{ github.action_path }}"
       shell: bash
     - run: |
         if [ -n "${{ inputs.transcript }}" ]; then
@@ -23,4 +23,3 @@ runs:
           a2a-contract-test run --agent-card "${{ inputs.agent-card }}" --out "${{ inputs.output }}"
         fi
       shell: bash
-
