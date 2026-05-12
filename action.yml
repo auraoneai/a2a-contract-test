@@ -1,5 +1,9 @@
 name: A2A Contract Test
 description: Run offline A2A-style agent card and task lifecycle contract tests.
+author: AuraOne
+branding:
+  icon: git-branch
+  color: blue
 inputs:
   agent-card:
     description: Path to agent-card.json
