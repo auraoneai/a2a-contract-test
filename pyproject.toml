@@ -4,21 +4,44 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "a2a-contract-test"
-version = "0.1.0"
-description = "Offline contract tests for A2A-style agent cards and task lifecycle behavior."
+version = "0.1.5"
+description = "Validate A2A-style agent cards and recorded task lifecycle transcripts without contacting an agent."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
 authors = [{ name = "AuraOne", email = "opensource@auraone.ai" }]
-keywords = ["a2a", "agents", "contract-testing", "conformance", "evals"]
+keywords = [
+  "a2a",
+  "agent-cards",
+  "agent2agent",
+  "agents",
+  "contract-testing",
+  "offline-testing",
+]
 classifiers = [
   "Development Status :: 3 - Alpha",
+  "Environment :: Console",
   "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12"
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Software Development :: Quality Assurance",
+  "Topic :: Software Development :: Testing",
 ]
+dependencies = []
+
+[project.urls]
+Homepage = "https://auraone.ai/open"
+Source = "https://github.com/auraoneai/a2a-contract-test"
+Issues = "https://github.com/auraoneai/a2a-contract-test/issues"
+Documentation = "https://github.com/auraoneai/a2a-contract-test#readme"
+Specification = "https://github.com/auraoneai/a2a-contract-test/blob/main/spec/auraone-a2a-contract-profile-v1.md"
+"GitHub Action" = "https://github.com/auraoneai/a2a-contract-test/blob/main/docs/github-action.md"
+Changelog = "https://github.com/auraoneai/a2a-contract-test/blob/main/CHANGELOG.md"
+Security = "https://github.com/auraoneai/a2a-contract-test/security/policy"
 
 [project.scripts]
 a2a-contract-test = "a2a_contract_test.cli:main"

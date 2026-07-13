@@ -1,18 +1,18 @@
-name: A2A Contract Test
-description: Run offline A2A-style agent card and task lifecycle contract tests.
+name: Test A2A Agent Contracts
+description: Validate an A2A-style agent card and recorded task lifecycle transcript without contacting the agent.
 author: AuraOne
 branding:
   icon: git-branch
-  color: blue
+  color: purple
 inputs:
   agent-card:
-    description: Path to agent-card.json
+    description: Repository-relative path to the agent card JSON file.
     required: true
   transcript:
-    description: Optional path to contract-transcript.json
+    description: Optional only when contract-transcript.json is next to the agent card; otherwise provide its path.
     required: false
   output:
-    description: Markdown report output path
+    description: Repository-relative Markdown report path; its parent directory must already exist.
     required: false
     default: a2a-contract-report.md
 runs:
