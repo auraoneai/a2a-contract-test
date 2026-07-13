@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - uses: auraoneai/a2a-contract-test@0afe508dcfc0328d43949ca77498230fe9f25c8b # v0.1.5
+      - uses: auraoneai/a2a-contract-test@a8aeb3e6c2495a0e2b3b47e6c349c2b7628f620c # v0.1.5
         with:
           agent-card: contracts/agent-card.json
           transcript: contracts/contract-transcript.json
