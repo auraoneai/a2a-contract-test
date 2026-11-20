@@ -1,7 +1,41 @@
 # a2a-contract-test
 
-`a2a-contract-test` validates an A2A-style agent card and a recorded task
-lifecycle transcript without contacting the declared agent endpoint.
+A2A agent card validator and contract tests.
+
+[![PyPI](https://img.shields.io/pypi/v/a2a-contract-test)](https://pypi.org/project/a2a-contract-test/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/auraoneai/a2a-contract-test/blob/main/LICENSE)
+
+## Verified Quickstart
+
+```bash
+python -m pip install "a2a-contract-test==0.1.5"
+# from a source checkout (fixtures live in examples/)
+a2a-contract-test run --agent-card examples/passing_agent/agent-card.json --format json
+```
+
+Excerpt of the JSON report (the command exits `0`; the full output also
+includes the redacted `transcript` array):
+
+```text
+  "agent": "passing-review-agent",
+  "disclaimer": "Practical contract profile only; not an official A2A compliance claim.",
+  "finding_count": 0,
+  "findings": [],
+  "passed": true,
+  "tool": "a2a-contract-test",
+```
+
+When `--transcript` is omitted, the CLI reads `contract-transcript.json` next to
+the agent card. Add `--out /tmp/a2a-contract-report.json` to write the report to
+a file. The failing fixture returns exit code `1`.
+
+## Install
+
+```bash
+python -m pip install "a2a-contract-test==0.1.5"
+```
+
+The CLI has no runtime dependencies and requires Python 3.10 or newer.
 
 ## At a Glance
 
@@ -12,26 +46,26 @@ lifecycle transcript without contacting the declared agent endpoint.
 | Differentiator | Offline, dependency-free checks with a redacted transcript in the report. |
 | Produces | Markdown or JSON findings, pass state, and a replayable redacted transcript excerpt. |
 
-## Install
+`a2a-contract-test` validates an A2A-style agent card and a recorded task
+lifecycle transcript without contacting the declared agent endpoint.
 
-```bash
-python -m pip install "a2a-contract-test==0.1.5"
-```
+## What It Does and Doesn't Do
 
-## Verified Quickstart
+It does:
 
-Run from a source checkout:
+- validate agent-card fields, version text, endpoint shape, capabilities, and
+  input/output modes;
+- check a recorded task lifecycle: submitted, progress, and terminal states,
+  stable task IDs, cancellation, structured errors, and unsupported-capability
+  negotiation;
+- read local JSON files only and redact secret-like values in the transcript.
 
-```bash
-a2a-contract-test run \
-  --agent-card examples/passing_agent/agent-card.json \
-  --format json \
-  --out /tmp/a2a-contract-report.json
-```
+It doesn't:
 
-When `--transcript` is omitted, the CLI reads `contract-transcript.json` next to
-the agent card. The bundled passing fixture returns `passed: true` with zero
-findings. The failing fixture returns exit code `1`.
+- contact the endpoint declared in the card or test a live agent;
+- make an official A2A compliance claim. This is a practical contract profile
+  only, not affiliated with the Linux Foundation or an A2A standards body;
+- establish interoperability, reliability, or security.
 
 ## Contract Profile
 
@@ -104,3 +138,16 @@ Verified on 2026-07-13:
 
 Capture one sanitized task lifecycle, store it beside the matching agent card,
 and add the pinned Action as a pull request gate.
+
+## Part of the AuraOne Agent Reliability Workflow
+
+- [tool-call-replay](https://auraone.ai/open/tool-call-replay): turn a recorded
+  agent failure into a pytest regression.
+- [Agent Studio Open](https://auraone.ai/open/agent-studio-open): debug, replay,
+  and compare MCP and A2A agent traces.
+- [mcp-risk-linter](https://auraone.ai/open/mcp-risk-linter): offline MCP
+  server security linter.
+- [a2a-contract-test](https://auraone.ai/open/a2a-contract-test): A2A agent
+  card validator and contract tests.
+
+See related agent evaluation and reliability workflows. [Talk to AuraOne](https://auraone.ai/contact?from=open:a2a-contract-test)

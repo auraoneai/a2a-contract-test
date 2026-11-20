@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "a2a-contract-test"
 version = "0.1.5"
-description = "Validate A2A-style agent cards and recorded task lifecycle transcripts without contacting an agent."
+description = "A2A agent card validator and contract tests: check agent cards and recorded task lifecycle transcripts offline, without contacting an agent."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
@@ -17,6 +17,8 @@ keywords = [
   "agents",
   "contract-testing",
   "offline-testing",
+  "a2a agent card validator",
+  "a2a contract tests",
 ]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -34,7 +36,7 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Homepage = "https://auraone.ai/open"
+Homepage = "https://auraone.ai/open/a2a-contract-test"
 Source = "https://github.com/auraoneai/a2a-contract-test"
 Issues = "https://github.com/auraoneai/a2a-contract-test/issues"
 Documentation = "https://github.com/auraoneai/a2a-contract-test#readme"
